@@ -1,32 +1,12 @@
+use jetson::{gpio::valid_pins::Pin7, Gpio};
 use std::{thread, time::Duration};
 
-use jetgpio_sys::{gpioInitialise, gpioSetMode, gpioTerminate, gpioWrite, JET_OUTPUT};
-
 fn main() {
-    unsafe {
-        let result = gpioInitialise();
-        if result < 0 {
-            println!("Init Failed :( Error code {result}");
-            return;
-        }
+    let gpio = Gpio::new().expect("Initialize GPIO");
+    let mut led = gpio.get_output(Pin7).expect("Set GPIO pin 7 to output");
 
-        println!("Jetson initialized OK. Return code {result}");
-
-        let gpio_mode = gpioSetMode(7, JET_OUTPUT);
-        if gpio_mode < 0 {
-            println!("Init Failed :( Error code {gpio_mode}");
-            return;
-        }
-
-        println!("GPIO Pin 7 Set as Output. Return code {gpio_mode}");
-
-        for _ in 0..500 {
-            gpioWrite(7, 1);
-            thread::sleep(Duration::from_millis(500));
-            gpioWrite(7, 0);
-            thread::sleep(Duration::from_millis(500));
-        }
-
-        gpioTerminate();
+    for _ in 0..500 {
+        led.toggle().expect("Toggle");
+        thread::sleep(Duration::from_millis(500));
     }
 }

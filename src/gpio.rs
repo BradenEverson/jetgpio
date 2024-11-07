@@ -3,6 +3,7 @@
 use jetgpio_sys::{gpioInitialise, gpioTerminate};
 
 pub mod pins;
+pub mod valid_pins;
 
 pub struct Gpio;
 
