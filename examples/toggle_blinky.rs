@@ -1,4 +1,6 @@
-//! Example driver program that blinks an LED
+//! Example driver program that turns an LED on when a button is held
+//! Led - Physical Pin 7
+//! Button - Physical Pin 5
 
 use jetson::{
     gpio::valid_pins::{Pin5, Pin7},
