@@ -1,9 +1,12 @@
-/// Trait and struct implementations for all valid GPIO pins
+//! Trait and struct implementations for all valid GPIO pins
 
+/// A valid pin and its numeric representation
 pub trait ValidPin {
+    /// Returns the physical pin number for the given pin
     fn pin(&self) -> u32;
 }
 
+/// Creates a valid pin struct givent a name and physical pin number
 macro_rules! define_valid_pins {
     ($($pin_name:ident, $pin_number:literal),*) => {
         $(
@@ -11,6 +14,7 @@ macro_rules! define_valid_pins {
             pub struct $pin_name;
 
             impl $pin_name {
+                #[doc = concat!("Returns GPIO pin number ", stringify!($pin_number), ".")]
                 pub fn number() -> u8 {
                     $pin_number
                 }
@@ -26,7 +30,7 @@ macro_rules! define_valid_pins {
 }
 
 // Valid GPIO pins on Jetson. Possible todo: Block this macro behind several different feature
-// flags for the different nanos
+// flags for the different nanos.
 define_valid_pins!(
     Pin3, 3, Pin4, 4, Pin5, 5, Pin7, 7, Pin8, 8, Pin10, 10, Pin11, 11, Pin12, 12, Pin14, 14, Pin15,
     15, Pin16, 16, Pin17, 17, Pin18, 18, Pin19, 19, Pin21, 21, Pin22, 22, Pin23, 23, Pin24, 24,

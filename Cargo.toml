@@ -5,3 +5,16 @@ edition = "2021"
 
 [dependencies]
 jetgpio-sys = { version = "0.2.2", features = ["orin"] }
+
+[lints.rust]
+missing_docs = "warn"
+nonstandard-style = "warn"
+rust-2018-idioms = "warn"
+rust-2021-compatibility = "warn"
+rust-2024-compatibility = "warn"
+
+[lints.rustdoc]
+broken_intra_doc_links = "warn"
+
+[lints.clippy]
+missing_docs_in_private_items = "warn"

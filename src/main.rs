@@ -1,3 +1,5 @@
+//! Example driver program that blinks an LED
+
 use jetson::{gpio::valid_pins::Pin7, Gpio};
 use std::{thread, time::Duration};
 

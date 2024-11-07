@@ -6,16 +6,20 @@ use super::{valid_pins::ValidPin, Gpio};
 
 /// An input GPIO pin that can read a HIGH or LOW signal
 pub struct InputPin {
+    /// The physical pin number
     pin: u32,
 }
 
 /// An output GPIO pin that can send a HIGH or LOW signal
 pub struct OutputPin {
+    /// The physical pin number
     pin: u32,
+    /// Current pin state (true for high, false for low)
     state: bool,
 }
 
 impl Gpio {
+    /// Returns a GPIO InputPin on the given valid pin
     pub fn get_input<PIN: ValidPin>(&self, pin: PIN) -> super::Result<InputPin> {
         let pin = pin.pin();
         let res = unsafe { gpioSetMode(pin, JET_INPUT) };
@@ -26,6 +30,7 @@ impl Gpio {
         }
     }
 
+    /// Returns a GPIO OutputPin on the given valid pin
     pub fn get_output<PIN: ValidPin>(&self, pin: PIN) -> super::Result<OutputPin> {
         let pin = pin.pin();
         let res = unsafe { gpioSetMode(pin, JET_OUTPUT) };
@@ -38,6 +43,7 @@ impl Gpio {
 }
 
 impl InputPin {
+    /// Read the current value at this pin
     pub fn read(&self) -> super::Result<bool> {
         let level = unsafe { gpioRead(self.pin) };
         if level < 0 {
