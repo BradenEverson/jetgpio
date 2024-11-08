@@ -9,6 +9,7 @@ repository = "https://github.com/BradenEverson/jetgpio"
 
 [dependencies]
 jetgpio-sys = { version = "0.2.2", default-features = false }
+thiserror = "2.0.0"
 
 [features]
 default = []
