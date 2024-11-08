@@ -2,7 +2,7 @@
 //! Led - Physical Pin 7
 //! Button - Physical Pin 5
 
-use jetson::{
+use jetgpio::{
     gpio::valid_pins::{Pin5, Pin7},
     Gpio,
 };

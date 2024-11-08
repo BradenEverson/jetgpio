@@ -6,6 +6,7 @@ pub mod pins;
 pub mod valid_pins;
 
 /// The host for all GPIO accessibility
+#[derive(Debug)]
 pub struct Gpio;
 
 /// A result that JetGpio may return

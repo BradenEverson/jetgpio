@@ -5,12 +5,14 @@ use jetgpio_sys::{gpioRead, gpioSetMode, gpioWrite, JET_INPUT, JET_OUTPUT};
 use super::{valid_pins::ValidPin, Gpio};
 
 /// An input GPIO pin that can read a HIGH or LOW signal
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct InputPin {
     /// The physical pin number
     pin: u32,
 }
 
 /// An output GPIO pin that can send a HIGH or LOW signal
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct OutputPin {
     /// The physical pin number
     pin: u32,
