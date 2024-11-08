@@ -8,7 +8,11 @@ license = "Unlicense"
 repository = "https://github.com/BradenEverson/jetgpio"
 
 [dependencies]
-jetgpio-sys = { version = "0.2.2", features = ["orin"] }
+jetgpio-sys = { version = "0.2.2", default-features = false }
+
+[features]
+default = []
+orin = ["jetgpio-sys/orin"]
 
 [lib]
 
