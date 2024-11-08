@@ -1,7 +1,11 @@
 [package]
-name = "jetson"
+name = "jetgpio"
 version = "0.1.0"
+authors = ["BradenEverson <bradeneverson@gmail.com>"]
+description = "Peripheral Abstraction Layer for Jetson Nano Devices"
 edition = "2021"
+license = "Unlicense"
+repository = "https://github.com/BradenEverson/jetgpio"
 
 [dependencies]
 jetgpio-sys = { version = "0.2.2", features = ["orin"] }
