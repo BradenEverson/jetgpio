@@ -3,6 +3,8 @@ This crate provides a peripheral abstraction layer over the [jetgpio-sys](https:
 
 This library is built on top of [jetgpio-sys](https://github.com/raoz/jetgpio-sys), which iteslf is built on top of the [JETGPIO](https://github.com/Rubberazer/JETGPIO) package.
 
+By default this crate assumes Jetson Nano usage. For interfacing with a Jetson Orin Nano, enable the `orin` feature flag.
+
 ## Requirements
 
 * Clang
