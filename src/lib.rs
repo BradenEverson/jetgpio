@@ -2,3 +2,6 @@
 
 pub mod gpio;
 pub use gpio::Gpio;
+
+pub mod pwm;
+pub use pwm::Pwm;
