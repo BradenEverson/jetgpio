@@ -21,7 +21,7 @@ By default this crate assumes Jetson Nano usage. For interfacing with a Jetson O
 
 ## Currently Supported Interfaces (and those in progress)
 - [x] GPIO Input and Output Pins
-- [ ] PWM
+- [x] PWM
 
 ## Licence
 
