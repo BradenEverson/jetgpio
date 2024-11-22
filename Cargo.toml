@@ -1,6 +1,6 @@
 [package]
 name = "jetgpio"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["BradenEverson <bradeneverson@gmail.com>"]
 description = "Peripheral Abstraction Layer for Jetson Nano Devices"
 edition = "2021"

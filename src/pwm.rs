@@ -8,6 +8,7 @@ use crate::gpio::{jetgpio_code_to_result, valid_pins::ValidPin};
 pub mod valid_pwm;
 
 /// A PWM Channel with respect to its physical Pin
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct Pwm {
     /// The physical pin attached to this PWM channel
     pin: u32,
