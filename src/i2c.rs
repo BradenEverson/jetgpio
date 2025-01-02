@@ -77,7 +77,7 @@ impl I2c {
         let addr = self.slave_addr.ok_or(Error::UninitializedSlaveAddr)?;
         let read = unsafe { i2cReadByteData(self.handle, addr, register as u32) };
         if read < 0 {
-            return Err(Error::JetGpioSysError(read));
+            Err(Error::JetGpioSysError(read))
         } else {
             Ok(read as u8)
         }
